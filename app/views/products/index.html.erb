@@ -1,6 +1,6 @@
 <h1>Products Index (<%= @products.length %>)</h1>
 <% @products.each do |product| %>
-  <p>Name: <%= product.name %> Price: <%= product.price_in_cents %></p>
+  <p>Name: <%= product.name %> Price: <%= product.formatted_price %></p>
   <p>Description<p>
   <p><%= product.description %></p>	
 <% end %>
