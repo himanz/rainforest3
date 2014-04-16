@@ -1,19 +1,18 @@
 <h1>Products show</h1>
 <%= link_to "Back", products_path %>
-<p>Name: <%= @product.name %> Price: <%= @product.formatted_price %></p>
+<p></p><br>
+<p>Name: <%= @product.name %> Price: <%= @product.formatted_price %></p><br>
 <p>Description<p>
-<p><%= @product.description %></p>	
+<p><%= @product.description %></p><br>	
 
 <% if current_user %>
 
-  <h3>Tags</h3>
+  <h3><u>Tags</u></h3>
   <% @product.categories.each do |cat| %>
     <p><%= cat.tag %> 
   <% end %>
-
-  <h3>Reviews</h3>
-
-  <p>Reviews for <%= @product.name %></p>
+  <br>
+  <p>Reviews for <%= @product.name %></p></br>
   <% review_sort = @product.reviews.order("created_at DESC") %>
   <% review_sort.each do |review| %>
     <p>
@@ -25,7 +24,7 @@
     	<% end %>
     </p>
   <% end %>
-
+  <br>
   <h4>New Review</h4>
 
   <%= form_for([@product, @review]) do |f| %>
@@ -49,7 +48,7 @@
       <%= f.submit %>
     </div>
   <% end %>
-
+  <br>
   <h4>New Category Tag</h4>
 
   <%= form_for([@product, @category]) do |f| %>
