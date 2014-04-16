@@ -8,8 +8,8 @@
   <h3> Reviews</h3>
 
   <p>Reviews for <%= @product.name %></p>
-
-  <% @product.reviews.each do |review| %>
+  <% review_sort = @product.reviews.order("created_at DESC") %>
+  <% review_sort.each do |review| %>
     <p>
     	<%= review.comment %>
     	<br>
