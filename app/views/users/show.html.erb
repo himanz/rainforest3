@@ -1,9 +1,11 @@
 <h1><%= @user.name %> info </h1>
+<%= link_to "Products index", products_path %>
+<p></p><br>
 <p>Name: <%= @user.name %><p>
-<p>Email: <%= @user.email %></p>
-<h2>Reviews by User</h2>
+<p>Email: <%= @user.email %></p></br>
+<h2>Reviews by User</h2><br>
 <% @reviews.each do |review| %>
   <h3><%= review.product.name %></h3>
   <p><%= review.comment %></p>
-  <p>Posted at: <%= review.created_at %></p>
+  <p>Posted at: <%= review.created_at %></p><br>
 <% end %>
