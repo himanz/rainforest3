@@ -14,7 +14,7 @@
     	<%= review.comment %>
     	<br>
     	<% if review.user != nil %>
-    	  <em> by <%= review.user.name %></em>
+    	  <em> by <%= link_to review.user.name, user_path(review.user.id) %></em>
     	  Added on: <%= review.created_at %>
     	<% end %>
     </p>
