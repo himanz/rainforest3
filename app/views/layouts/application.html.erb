@@ -18,8 +18,9 @@
 	  <p id="alert"><%= flash[:alert] %></p>
 	<% end %>
 
+<div class="main">
 <%= yield %>
-
+</div>
   <footer>
     <p class="userinfo">
     	<% if current_user %>
