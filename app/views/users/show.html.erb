@@ -1,0 +1,9 @@
+<h1><%= @user.name %> info </h1>
+<p>Name: <%= @user.name %><p>
+<p>Email: <%= @user.email %></p>
+<h2>Reviews by User</h2>
+<% @reviews.each do |review| %>
+  <h3><%= review.product.name %></h3>
+  <p><%= review.comment %></p>
+  <p>Posted at: <%= review.created_at %></p>
+<% end %>
