@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h2 class="header_text">Rainforest</h2>
+    <h3 class="header_text">Feel the rain</h3>
+  </header>
 	<% if flash[:notice] %>
 	  <p id="notice"><%= flash[:notice] %></p>
 	<% end %>
@@ -16,13 +20,15 @@
 
 <%= yield %>
 
-  <p class="userinfo">
-  	<% if current_user %>
-  	  Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
-  	<% else %>
-  	  <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
-  	<% end %>
-  </p>
+  <footer>
+    <p class="userinfo">
+    	<% if current_user %>
+    	  Signed in as <%= current_user.name %>. <%= link_to "Log out", session_path("current"), :method => :delete %>
+    	<% else %>
+    	  <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+    	<% end %>
+    </p>
+  </footer>
 
 </body>
 </html>
