@@ -1,6 +1,10 @@
 Rainforest3::Application.routes.draw do
+  get "categories/show"
+  get "categories/new"
+  get "categories/edit"
   resources :products do
     resources :reviews, :except => [:index]
+    resources :categories, :except => [:index]
   end
   resources :users, :only => [:new, :create, :show]
   resources :sessions, :only => [:new, :create, :destroy]

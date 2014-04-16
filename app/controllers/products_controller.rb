@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   	if current_user
   		@review = @product.reviews.build
+      @category = @product.categories.build
   	end
   end
 

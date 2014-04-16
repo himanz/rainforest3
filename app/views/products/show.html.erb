@@ -6,7 +6,12 @@
 
 <% if current_user %>
 
-  <h3> Reviews</h3>
+  <h3>Tags</h3>
+  <% @product.categories.each do |cat| %>
+    <p><%= cat.tag %> 
+  <% end %>
+
+  <h3>Reviews</h3>
 
   <p>Reviews for <%= @product.name %></p>
   <% review_sort = @product.reviews.order("created_at DESC") %>
@@ -39,6 +44,30 @@
      <div class="field">
       <%= f.label :comment %><br />
       <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+  <h4>New Category Tag</h4>
+
+  <%= form_for([@product, @category]) do |f| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+     <div class="field">
+      <%= f.label :tag %><br />
+      <%= f.text_field :tag %>
     </div>
     <div class="actions">
       <%= f.submit %>
