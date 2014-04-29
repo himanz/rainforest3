@@ -2,7 +2,11 @@ class ProductsController < ApplicationController
   before_filter :ensure_logged_in, :only => [:show]
 
   def index
-  	@products = Product.all
+  	@products = if params[:search]
+      # Product.where("name ILIKE ?", "%#{params[:search]}%")Product.all
+    else
+      Product.all
+    end
   end
 
   def show
