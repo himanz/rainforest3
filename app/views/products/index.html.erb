@@ -1,8 +1,12 @@
 <h1>Products Index (<%= @products.length %>)</h1>
 <%= link_to "New", new_product_path %>
 <br><p></p>
-<% @products.each do |product| %>
-  <br><p>Name: <%= link_to product.name, product %> Price: <%= product.formatted_price %></p><br>
-  <p>Description<p>
-  <p><%= product.description %></p>	
+
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
 <% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>

@@ -3,10 +3,15 @@ class ProductsController < ApplicationController
 
   def index
   	@products = if params[:search]
-      # Product.where("name ILIKE ?", "%#{params[:search]}%")Product.all
+      Product.where("name ILIKE ?", "%#{params[:search]}%")
     else
       Product.all
     end
+  end
+
+  def search
+    @products = Product.where("name ILIKE ?", "%#{params[:search]}%")
+    render @product
   end
 
   def show
