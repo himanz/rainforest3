@@ -1,5 +1,6 @@
 <h1>Products Index (<%= @products.length %>)</h1>
 <%= link_to "New", new_product_path %>
+<%= Time.now %>
 <br><p></p>
 
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
