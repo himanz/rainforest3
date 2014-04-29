@@ -5,7 +5,6 @@ Rainforest3::Application.routes.draw do
   resources :products do
     resources :reviews, :except => [:index]
     resources :categories, :except => [:index]
-  
   end
   resources :users, :only => [:new, :create, :show]
   resources :sessions, :only => [:new, :create, :destroy]
