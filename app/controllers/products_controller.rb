@@ -8,8 +8,9 @@ class ProductsController < ApplicationController
       Product.all
     end
 
-    if request.xhr?
-      return render @products
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
